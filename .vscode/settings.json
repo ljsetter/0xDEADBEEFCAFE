@@ -1,4 +1,4 @@
 {
-    "python.pythonPath": "/home/x/.local/share/virtualenvs/0xDEADBEEFCAFE-HIaR3-VJ/bin/python",
+    "python.pythonPath": "/usr/bin/python3",
     "git.ignoreLimitWarning": true
 }
