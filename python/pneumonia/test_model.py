@@ -1,8 +1,5 @@
 from keras.models import load_model
 from keras.preprocessing.image import  load_img, image, ImageDataGenerator
-import matplotlib.pyplot as plt
-import keras.backend as kb
-from keras.models import Sequential
 import numpy as np
 from glob import glob
 import os
