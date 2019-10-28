@@ -6,26 +6,16 @@ from keras.layers import Dense
 import matplotlib.pyplot as plt
 from keras.preprocessing.image import ImageDataGenerator, load_img
 import math
+import os
 
-data_path = "/home/mason/Documents/school/machine_learning/projects/applied_project/0xDEADBEEFCAFE/python/pneumonia/data"
+
+data_path = os.path.dirname(os.path.realpath(__file__)) + "/data"
 
 test_dir = data_path + "/test"
 val_dir = data_path + "/val"
 train_dir = data_path + "/train"
 
-example_normal_image = load_img(test_dir + "/NORMAL/IM-0001-0001.jpeg")
-example_pnem_image = load_img(test_dir + "/PNEUMONIA/person100_bacteria_475.jpeg")
-
-plt.imshow(example_normal_image)
-plt.title("Normal")
-plt.show()
-
-plt.imshow(example_pnem_image)
-plt.title("Pneumonia")
-plt.show()
-
 # Setup
-
 image_height, image_width = 255, 255
 
 batch_size = 10
