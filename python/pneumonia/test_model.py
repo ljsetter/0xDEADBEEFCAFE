@@ -7,7 +7,7 @@ import os
 
 cwd =  os.path.dirname(os.path.realpath(__file__))
 
-model = load_model(cwd + "/model.h5")
+model = load_model(cwd + "/model_10-27-2019.h5")
 model.compile(loss='binary_crossentropy',
               optimizer='adam',
               metrics=['accuracy'])
