@@ -13,7 +13,7 @@ test_data_filepath = data_path + "/test"
 train_data_filepath = data_path + "/train"
 val_data_filepath = data_path + "/val"
 
-BATCH_SIZE = 10
+BATCH_SIZE = 20
 NUM_EPOCHS = 20
 NUM_TRAIN_SAPLES = 1341 + 3875 # Normal + Pneumonia
 NUM_VAL_SAMPLES = 8 + 8 # Normal + Pneumonia
@@ -25,7 +25,7 @@ def data():
     train_data_filepath = data_path + "/train"
     val_data_filepath = data_path + "/val"
 
-    BATCH_SIZE = 50
+    BATCH_SIZE = 20
     NUM_EPOCHS = 20
     NUM_TRAIN_SAPLES = 1341 + 3875 # Normal + Pneumonia
     NUM_VAL_SAMPLES = 8 + 8 # Normal + Pneumonia
@@ -62,7 +62,7 @@ def model(train_set, test_set, val_set):
     train_data_filepath = data_path + "/train"
     val_data_filepath = data_path + "/val"
 
-    BATCH_SIZE = 50
+    BATCH_SIZE = 20
     NUM_EPOCHS = 20
     NUM_TRAIN_SAPLES = 1341 + 3875 # Normal + Pneumonia
     NUM_VAL_SAMPLES = 8 + 8 # Normal + Pneumonia
