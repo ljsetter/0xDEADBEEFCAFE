@@ -19,16 +19,6 @@ NUM_TRAIN_SAPLES = 1341 + 3875 # Normal + Pneumonia
 NUM_VAL_SAMPLES = 8 + 8 # Normal + Pneumonia
 INPUT_SHAPE = (255, 255, 3)
 
-test_data_filepath = data_path + "/test"
-train_data_filepath = data_path + "/train"
-val_data_filepath = data_path + "/val"
-
-BATCH_SIZE = 50
-NUM_EPOCHS = 20
-NUM_TRAIN_SAPLES = 1341 + 3875 # Normal + Pneumonia
-NUM_VAL_SAMPLES = 8 + 8 # Normal + Pneumonia
-INPUT_SHAPE = (255, 255, 3)
-
 def data():
     data_path = os.path.dirname(os.path.realpath(__file__)) + "/data"
     test_data_filepath = data_path + "/test"
