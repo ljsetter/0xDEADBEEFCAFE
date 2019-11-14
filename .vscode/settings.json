@@ -1,4 +1,7 @@
 {
     "python.pythonPath": "/usr/bin/python3",
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "cSpell.words": [
+        "keras"
+    ]
 }
