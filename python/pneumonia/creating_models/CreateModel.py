@@ -3,7 +3,7 @@ from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
 from keras.preprocessing.image import ImageDataGenerator, load_img
 from hyperopt import Trials, STATUS_OK, tpe
 from hyperas import optim
-from hyperas.distributions import uniform
+from hyperas.distributions import uniform, choice
 import math
 import os
 
@@ -19,23 +19,13 @@ NUM_TRAIN_SAPLES = 1341 + 3875 # Normal + Pneumonia
 NUM_VAL_SAMPLES = 8 + 8 # Normal + Pneumonia
 INPUT_SHAPE = (255, 255, 3)
 
-test_data_filepath = data_path + "/test"
-train_data_filepath = data_path + "/train"
-val_data_filepath = data_path + "/val"
-
-BATCH_SIZE = 10
-NUM_EPOCHS = 20
-NUM_TRAIN_SAPLES = 1341 + 3875 # Normal + Pneumonia
-NUM_VAL_SAMPLES = 8 + 8 # Normal + Pneumonia
-INPUT_SHAPE = (255, 255, 3)
-
 def data():
-    data_path = os.path.dirname(os.path.realpath(__file__)) + "/data"
+    data_path = os.path.dirname(os.path.realpath(__file__)) + "/../data"
     test_data_filepath = data_path + "/test"
     train_data_filepath = data_path + "/train"
     val_data_filepath = data_path + "/val"
 
-    BATCH_SIZE = 10
+    BATCH_SIZE = 50
     NUM_EPOCHS = 20
     NUM_TRAIN_SAPLES = 1341 + 3875 # Normal + Pneumonia
     NUM_VAL_SAMPLES = 8 + 8 # Normal + Pneumonia
@@ -72,7 +62,7 @@ def model(train_set, test_set, val_set):
     train_data_filepath = data_path + "/train"
     val_data_filepath = data_path + "/val"
 
-    BATCH_SIZE = 10
+    BATCH_SIZE = 50
     NUM_EPOCHS = 20
     NUM_TRAIN_SAPLES = 1341 + 3875 # Normal + Pneumonia
     NUM_VAL_SAMPLES = 8 + 8 # Normal + Pneumonia
@@ -96,7 +86,7 @@ def model(train_set, test_set, val_set):
 
     # Feed forward network ----------
     model.add(Flatten())
-    model.add(Dense(64, activation='relu'))
+    model.add(Dense({{choice([16, 32, 64])}}, activation='relu'))
 
     # Output Layer
     model.add(Dense(1, activation='sigmoid'))
@@ -117,7 +107,7 @@ def main():
     best_run, best_model = optim.minimize(  model=model,
                                             data=data,
                                             algo=tpe.suggest,
-                                            max_evals=10,
+                                            max_evals=15,
                                             trials=Trials())
 
     best_model.save('model_11-11-2019_hyperas.h5')
