@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Pneumonia Predictor</title>
+        <script src="https://kit.fontawesome.com/2a4e989807.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <h1><i class="fas fa-user-md"></i>Pneumonia Prediction Service</h1>
+        </header>
+        <nav></nav>
+        <article id="left">
+            <section class="upload">
+                <h2><i class="fas fa-chevron-circle-right"></i>Upload image</h2> 
+                <form class="block" id="upload-form" action="/process-image" method="post">
+                    <input type="file">
+                    <input id="submit" type="submit">
+                </form>
+            </section>
+        </article>
+        <article id="right">
+            <section class="current-result">
+                <h2><i class="fas fa-chevron-circle-right"></i>View results</h2>
+                <div class="block" id="result-block">
+                    <img>
+                    <h4>Result: No pneumonia</h4>
+                    <h4>Probability: 70%</h4>
+                </div>
+                </section>
+        </article>
+    </body>
+</html>
