@@ -15,9 +15,9 @@
         <article id="left">
             <section class="upload">
                 <h2><i class="fas fa-chevron-circle-right"></i>Upload image</h2> 
-                <form class="block" id="upload-form" action="/process-image" method="post">
+                <form class="block" id="upload-form">
                     <input type="file">
-                    <input id="submit" type="submit">
+                    <input id="submit", type="submit">
                 </form>
             </section>
         </article>
@@ -25,11 +25,22 @@
             <section class="current-result">
                 <h2><i class="fas fa-chevron-circle-right"></i>View results</h2>
                 <div class="block" id="result-block">
-                    <img>
-                    <h4>Result: No pneumonia</h4>
-                    <h4>Probability: 70%</h4>
+                    <!-- Content of the template goes here -->
                 </div>
                 </section>
         </article>
     </body>
 </html>
+
+<template id="results-row">
+    <table>
+        <tr>
+            <td><img></td>
+            <td>
+                <h4>Prediction: </h4>
+                <h4>Confidence: </h4>
+            </td>
+        </tr>
+    </table>
+</template>
+<script src="get-result.js"></script>
