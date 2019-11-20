@@ -16,12 +16,11 @@ app.get('/', function(req, res){
 });
 
 app.post('/api/process-image', async function(req, res){
-    /* Image should be processed here */
-    res.json(":)");
-});
+    var script = spawn("python", ["../python/testScript.py", "(XRAY IMAGE"])
 
-app.get('/api/process-image', async function(req, res){
-    res.send(":(");
-})
+    process.stdout.on('data', function(data) {
+        res.json(data.toString());
+    })
+});
 
 app.listen(SERVICE_PORT);
