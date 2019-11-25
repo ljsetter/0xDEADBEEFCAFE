@@ -45,6 +45,7 @@ h2{
 }
 
 h2 i.fas{
+    padding-left: 10px;
     padding-right: 10px;
 }
 
@@ -63,6 +64,10 @@ section{
 
 form #submit{
     float: right;
+}
+
+#right h2{
+    text-align: right;
 }
 
 .current-result h4{

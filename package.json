@@ -1,0 +1,23 @@
+{
+  "name": "0xdeadbeefcafe",
+  "version": "1.0.0",
+  "description": "Install `pipenv`",
+  "main": "index.js",
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ljsetter/0xDEADBEEFCAFE.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ljsetter/0xDEADBEEFCAFE/issues"
+  },
+  "homepage": "https://github.com/ljsetter/0xDEADBEEFCAFE#readme"
+}
