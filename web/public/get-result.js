@@ -1,8 +1,12 @@
 function postResults(data){
+    console.log(data);
     var content = document.getElementById("results-row").content;
     var clone = document.importNode(content, true);
     data.json().then(body => {
-        clone.querySelector("h4").textContent += body;
+        attributes = body.split(' ')
+        path = attributes[0].replace('public', '');
+        clone.querySelector("img").src = path
+        clone.querySelector("h4").textContent += attributes[1];
         document.getElementById("result-block").appendChild(clone);
 
     })

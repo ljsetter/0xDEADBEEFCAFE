@@ -5,7 +5,7 @@ const async = require('express-async-await');
 const fetch = require('node-fetch');
 const multer = require('multer');
 const bodyParser = require('body-parser');
-const upload = multer({ storage: multer.memoryStorage() })
+const upload = multer({ dest: 'public/uploads/' })
 
 const SERVICE_PORT = 4701;
 
@@ -19,10 +19,10 @@ app.get('/', function(req, res){
 });
 
 app.post('/api/process-image', bodyParser.urlencoded({ extended: true }), upload.single('photo'), async function(req, res){
-    console.log(req.file);
+    console.log(req.file.path);
     
 
-    var script = spawn("python", ["./predict.py", "person1671_virus_2887.jpeg"])
+    var script = spawn("python", ["./predict.py", req.file.path])
 
     script.stdout.on('data', function(data) {
         res.json(data.toString());
