@@ -45,9 +45,12 @@ def main():
     normal_predictions = len(normal_predictions) - sum(normal_predictions)
     pneumonia_predictions = sum(pneumonia_predictions)
 
-    print("Normal Predictions: ", normal_predictions, " of ", total_normal, " = ", 100 * normal_predictions / total_normal, "% accurate")
-    print("Pneumonia Predictions: ", pneumonia_predictions, " of ", total_pneumonia, " = ", 100 * pneumonia_predictions / total_pneumonia, "% accurate")
-    print("Total accuracy: ", 100 * (normal_predictions + pneumonia_predictions) / (total_normal + total_pneumonia), "%")
+    print("                 Actual Class")
+    print("                Norm\tPneum")
+    print("Predicted|Norm| {}\t{}\n  Class  |Pneu| {}\t{}\n".format(normal_predictions,
+                                                                    total_pneumonia - pneumonia_predictions,
+                                                                    total_normal - normal_predictions,
+                                                                    pneumonia_predictions))
 
 if __name__ == "__main__":
     main()
