@@ -137,22 +137,21 @@ def predict(input_filename, model):
 
 
 def main():
-    assert(len(sys.argv) == 4)
+    #assert(len(sys.argv) == 4)
     input_filename = sys.argv[1]
-    output_image_filename = sys.argv[2]
-    output_prediction_filename = sys.argv[3]
+    output_image_filename = sys.argv[1] + "-result.jpeg"
 
     cwd = os.path.dirname(os.path.realpath(__file__))
     model = load_model(cwd + "/model.h5")
     input_filename = cwd + '/' + input_filename
-    output_image_filename = cwd + '/' + output_image_filename
+    output_image_path = cwd + '/' + output_image_filename
 
     img, prediction = predict(input_filename, model)
     
-    img.save(output_image_filename)
+    img.save(output_image_path)
 
-    with open(output_prediction_filename, 'w') as file:
-        file.write(prediction)
+    print(output_image_filename, prediction)
+    sys.stdout.flush()
 
 
 if __name__ == "__main__":
