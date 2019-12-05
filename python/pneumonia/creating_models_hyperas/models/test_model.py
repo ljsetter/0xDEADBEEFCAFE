@@ -30,8 +30,8 @@ def main():
     model_filename = sys.argv[1]
 
     model_filename = current_file_directory + "/" +  model_filename
-    test_directory_normal = current_file_directory + "/../data/test/NORMAL"
-    test_directory_pneumonia = current_file_directory + "/../data/test/PNEUMONIA"
+    test_directory_normal = current_file_directory + "/../../data/test/NORMAL"
+    test_directory_pneumonia = current_file_directory + "/../../data/test/PNEUMONIA"
 
     model = load_model(model_filename)
 
