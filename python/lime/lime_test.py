@@ -63,15 +63,15 @@ segmentation_fn = SegmentationAlgorithm('quickshift', kernel_size=4,
 # %%
 # test images saved in the python directory
 
-#path = os.getcwd() + '\\data\\test\\PNEUMONIA\\person47_virus_99.jpeg'
+#path = os.getcwd() + '\\python\\data\\test\\PNEUMONIA\\person47_virus_99.jpeg'
 
-path = os.getcwd() + '\\python\\Pneumonia-right-middle-lobe-4.jpg'
+#path = os.getcwd() + '\\python\\lime\\Pneumonia-right-middle-lobe-4.jpg'
 
-#path = os.getcwd() + '\\python\\Pneumonia-CXR.png'
+path = os.getcwd() + '\\python\\lime\\Pneumonia_CXR.jpeg'
 
-#path = os.getcwd() + '\\76052f7902246ff862f52f5d3cd9cd_big_gallery.jpg'
+#path = os.getcwd() + '\\python\\lime\\76052f7902246ff862f52f5d3cd9cd_big_gallery.jpg'
 
-#path = os.getcwd() + '\\xray-chest-pneumonia.jpg'
+#path = os.getcwd() + '\\python\\lime\\xray-chest-pneumonia.jpg'
 
 # load normal image
 test_image = load_img(path, target_size=(255,255,3))
