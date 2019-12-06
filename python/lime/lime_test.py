@@ -10,7 +10,7 @@ except:
 	pass
 # %%
 """
-This script tests lime and can use both a UNet to segment the image or no UNet by setting the use_unet boolean.
+This script tests lime and can use both a UNet to segment the image or no UNet by setting the use_unet boolean. The UNet is from reference [9] from the presentation.
 """
 
 

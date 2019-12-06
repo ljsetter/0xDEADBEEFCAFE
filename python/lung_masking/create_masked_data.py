@@ -4,10 +4,16 @@
 # ms-python.python added
 import os
 try:
-	os.chdir(os.path.join(os.getcwd(), '..\\lung_masking'))
+	os.chdir(os.path.join(os.getcwd(), 'python\\lung_masking'))
 	print(os.getcwd())
 except:
 	pass
+# %%
+"""
+This script uses the UNet from reference [9] in the presentation to generate masked data.
+""" 
+
+
 # %%
 import keras
 from keras.preprocessing.image import ImageDataGenerator, load_img
@@ -24,6 +30,7 @@ def dice_error(y_true, y_pred):
 
 
 # %%
+# load UNet
 model = keras.models.load_model('unet_model_16_filters_kernel2x2.h5',custom_objects={'dice_coef':dice_coef,'dice_error':dice_error})
 
 
@@ -33,7 +40,7 @@ from keras.preprocessing.image import image, load_img, save_img
 
 def mask_image(model, input_glob, output_path, label_header):
     """
-    Mask an image using the UNet model.
+    Mask an image using the UNet model and save the output into the correct directory.
     """
     crx_images = input_glob
     
@@ -60,14 +67,13 @@ def mask_image(model, input_glob, output_path, label_header):
 # %%
 parent_path = os.path.dirname( os.getcwd() )
 
-file_paths = ['\\train\\NORMAL\\', '\\train\\PNEUMONIA\\',\
-    '\\test\\NORMAL\\', '\\test\\PNEUMONIA\\',\
-        '\\val\\NORMAL\\', '\\val\\PNEUMONIA\\']
+# list of data file paths
+file_paths = ['\\train\\NORMAL\\', '\\train\\PNEUMONIA\\',               '\\test\\NORMAL\\', '\\test\\PNEUMONIA\\',               '\\val\\NORMAL\\', '\\val\\PNEUMONIA\\']
 
 for i,file_path in enumerate(file_paths):
     input_path = glob.glob(parent_path + '\\data' + file_path + '*')
     output_path = parent_path + '\\lung_mask_data' + file_path
-    print(output_path)
+
     if i % 2 == 0:
         header = "normal_crx"
     else:
