@@ -1,1 +1,0 @@
-The naming convention for the files is model + accuracy (in percent) * 100 + seconds from epoch + .h
