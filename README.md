@@ -2,12 +2,12 @@
 
 # Installation
 
-Install `pipenv`
+Create virtual environment to install packages into.s
+
+Install `lime` and `keras`
 
 ```
-pip install --user pipenv
+pip install lime keras
 ```
-
-Create a virtual environment 
 
 
