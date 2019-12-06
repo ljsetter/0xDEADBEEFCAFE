@@ -18,13 +18,37 @@ from lime.lime_image import LimeImageExplainer
 from lime.wrappers.scikit_image import SegmentationAlgorithm
 from skimage.segmentation import mark_boundaries
 
-def load_image(input_filename):
+def mask_image(input_filename, unet_model):
+    """ Loads an rgb image and returns the image with the lungs masked.
+
+    input_filename  -> filename of the image to load
+
+    return          -> Image with lung region masked out
+
+    """
+    img = load_img(input_filename, color_mode='grayscale', target_size=(128,128))
+    img = image.img_to_array(img)
+    img = img * (1. / 255)
+    img = np.expand_dims(img, axis=0)
+
+    sgm = model.predict(img).argmax(axis=3)[0]
+    img_mask = sgm > 0
+    img_mask = np.where(img_mask, img[...,0][0], 0)
+    img_mask = np.reshape(img_mask, (128,128,1))
+
+    return img_mask
+
+def load_image(input_filename, unet_model=None, use_unet=False):
     """ Loads an rgb image and converts to correct format
 
     input_filename  -> filename of the image to load
 
     return          -> Image loaded
     """
+
+    if use_unet=True:
+        masked_image = mask_image(input_filename, unet_model)
+        save_img(input_filename, masked_image)
 
     img = load_img(input_filename, target_size=(255,255,3))
     img = image.img_to_array(img)
