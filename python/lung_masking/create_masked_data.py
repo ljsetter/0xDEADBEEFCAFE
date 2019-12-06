@@ -60,12 +60,14 @@ def mask_image(model, input_glob, output_path, label_header):
 # %%
 parent_path = os.path.dirname( os.getcwd() )
 
-file_paths = ['\\train\\NORMAL\\', '\\train\\PNEUMONIA\\',               '\\test\\NORMAL\\', '\\test\\PNEUMONIA\\',               '\\val\\NORMAL\\', '\\val\\PNEUMONIA\\']
+file_paths = ['\\train\\NORMAL\\', '\\train\\PNEUMONIA\\',\
+    '\\test\\NORMAL\\', '\\test\\PNEUMONIA\\',\
+        '\\val\\NORMAL\\', '\\val\\PNEUMONIA\\']
 
 for i,file_path in enumerate(file_paths):
     input_path = glob.glob(parent_path + '\\data' + file_path + '*')
     output_path = parent_path + '\\lung_mask_data' + file_path
-
+    print(output_path)
     if i % 2 == 0:
         header = "normal_crx"
     else:
